@@ -2,7 +2,7 @@
 resources:
   jobs:
     cicd_project_job:
-      name: cicd_project_job
+      name: cicd_project_job_$(bundle.target)
 
       trigger:
         # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
@@ -26,6 +26,8 @@ resources:
             # By default we just include the .whl file generated for the cicd_project package.
             # See https://docs.databricks.com/dev-tools/bundles/library-dependencies.html
             # for more information on how to add other libraries.
+            - pypi:
+                package: pytest
             - whl: ../dist/*.whl
 
       job_clusters:
