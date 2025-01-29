@@ -1,4 +1,4 @@
-from src.cleandf import clean_name
+from cicd_project.cleandf import clean_name
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType, DoubleType
 from pandas.testing import assert_frame_equal
 import pytest
