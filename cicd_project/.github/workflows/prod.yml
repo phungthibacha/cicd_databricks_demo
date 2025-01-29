@@ -37,14 +37,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-#       - uses: actions/setup-python@v4
-#         with:
-#           python-version: 3.11
-#           cache: 'pip'
-
-#       - run: pip install -r requirements-dev.txt
-#         working-directory: .github/support
-
       - uses: databricks/setup-cli@main
 
       - shell: bash
