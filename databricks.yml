@@ -28,4 +28,4 @@ targets:
       - user_name: amyphung.dev@gmail.com
         level: CAN_MANAGE
     run_as:
-      user_name: amyphung.dev@gmail.com
+      service_principal_name: 1615d951-3d32-4846-9760-b737f199cb3c

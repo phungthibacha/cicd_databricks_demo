@@ -1,4 +1,4 @@
-name: Deploy project to DEV
+name: Deploy project to dev environment
 
 concurrency: 1
 
@@ -26,10 +26,10 @@ jobs:
       - uses: databricks/setup-cli@main
 
       - run: databricks bundle deploy
+        working-directory: .
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
-
   pipeline_update:
     name: "Run pipeline update"
     runs-on: ubuntu-latest
@@ -55,6 +55,7 @@ jobs:
         run: |
           set -o pipefail
           databricks bundle run cicd_project_job --refresh-all 2>&1 | tee output.log
+        working-directory: .
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev
