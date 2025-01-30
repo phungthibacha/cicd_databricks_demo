@@ -17,6 +17,8 @@ targets:
     default: true
     workspace:
       host: https://adb-1037921126677680.0.azuredatabricks.net
+    run_as:
+      service_principal_name: 1615d951-3d32-4846-9760-b737f199cb3c
   prod:
     mode: production
     workspace:
