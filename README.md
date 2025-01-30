@@ -1,7 +1,5 @@
 # cicd_project
 
-## Getting started
-
 1. Install the Databricks CLI from https://docs.databricks.com/dev-tools/cli/databricks-cli.html
 
 2. Authenticate to your Databricks workspace, if you have not done so already:
