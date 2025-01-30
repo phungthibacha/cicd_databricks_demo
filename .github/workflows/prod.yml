@@ -23,10 +23,10 @@ jobs:
       - uses: databricks/setup-cli@main
 
       - run: databricks bundle deploy -t prod
+        working-directory: .
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
           DATABRICKS_BUNDLE_ENV: prod
-
   pipeline_update:
     name: "Run pipeline update"
     runs-on: ubuntu-latest
@@ -44,6 +44,7 @@ jobs:
         run: |
           set -o pipefail
           databricks bundle run cicd_project_job -t prod --refresh-all 2>&1 | tee output.log
+        working-directory: .
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
           DATABRICKS_BUNDLE_ENV: prod
